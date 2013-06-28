@@ -1,0 +1,55 @@
+indexes:
+- kind: Event
+  ancestor: no
+  properties:
+  - name: app_id
+  - name: ts
+    direction: asc
+
+- kind: Event
+  ancestor: no
+  properties:
+  - name: app_id
+  - name: ts
+    direction: desc
+
+- kind: Event
+  ancestor: no
+  properties:
+  - name: name
+  - name: ts
+    direction: asc
+
+- kind: Event
+  ancestor: no
+  properties:
+  - name: app_id
+  - name: name
+  - name: ts
+    direction: asc
+
+- kind: Event
+  ancestor: no
+  properties:
+  - name: app_id
+  - name: name
+  - name: ts
+    direction: desc
+
+- kind: Event
+  ancestor: no
+  properties:
+  - name: app_id
+  - name: domain
+  - name: ts
+    direction: asc
+
+- kind: Event
+  ancestor: no
+  properties:
+  - name: app_id
+  - name: name
+  - name: domain
+  - name: ts
+    direction: asc
+

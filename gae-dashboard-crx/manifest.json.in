@@ -1,0 +1,33 @@
+{
+    "name": "%TITLE%",
+    "version": "%VERSION%",
+    "manifest_version": 2,
+    "description": "%DESC%",
+    "homepage_url": "%URL%",
+    "update_url": "%UPDATE_URL%",
+    "icons": { "16": "icon-16.png", "48": "icon-48.png", "128": "icon-128.png" },
+    "permissions": [
+        "tabs",
+        "https://appengine.google.com/dashboard*",
+        "https://appengine.google.com/billing/*",
+        "https://*.appspot.com/",
+        "http://*.appspot.com/",
+        "https://localhost/",
+        "http://localhost/"
+    ],
+    "background": {
+        "scripts": [ "jquery-1.7.2.js", "background.js" ],
+        "persistent": true
+    },
+    "content_scripts": [ {
+        "css": [ "style.css" ],
+        "js": [ "jquery-1.7.2.js", "common.js", "contentscript-adminhistory.js" ],
+        "matches": [ "https://appengine.google.com/billing/*" ],
+        "run_at": "document_end"
+    }, {
+        "css": [ "style.css" ],
+        "js": [ "jquery-1.7.2.js", "common.js", "contentscript-dashboard.js" ],
+        "matches": [ "https://appengine.google.com/dashboard*" ],
+        "run_at": "document_end"
+    } ]
+}

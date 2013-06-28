@@ -1,0 +1,115 @@
+<html>
+<head>
+<script src="https://apis.google.com/js/client.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+</head>
+
+<body style="background: #fff; margin: 0px">
+<style type="text/css">
+table {
+    width: 100%;
+}
+.dashboard {
+    height: 100%;
+}
+.chart {
+    height: 90%;
+}
+.control {
+    height: 50px;
+}
+.legend {
+  width: 15%;
+  overflow-y: auto;
+  position: relative;
+  padding-top: 50px;
+  left: -100px;
+}
+.legend ul {
+  overflow-x: auto;
+  max-width: 300px;
+  height: 100%;
+}
+.legend li {
+  width: 10000px;
+}
+.legend li:hover {
+  background-color: #DFDFFF;
+}
+.legend li span {
+  padding-right: 4px;
+}
+.event-label {
+  color: purple;
+  font-family: sans-serif;
+}
+.hidden {
+  display: none;
+}
+.selected {
+  font-weight: bold;
+  background-color: #CCCCDD;
+}
+.event-ts {
+}
+.event-domain {
+
+}
+.event-name {
+}
+.day-separator {
+  list-style: none;
+  color: gray;
+}
+.multiple {
+    float: left;
+    width: 48%;
+}
+table, td, .multiple .chart {
+    height: 100%;
+}
+table.multiple {
+    height: 400px;
+}
+.multiple td {
+    height: auto;
+}
+.multiple tr {
+    height: 300px;
+}
+
+</style>
+<div id="charts">
+</div>
+<script type="text/javascript">
+  var app_id = "{{ app_id }}";
+  var app_events = '{{ events|safe }}';
+  var app_domains = '{{ domains|safe }}';
+  var start_ts = '{{ start_ts|safe }}';
+  var end_ts = '{{ end_ts|safe }}';
+  // Accommodate local loading
+  if (app_id.match(/^{/)) {
+      app_id = '';
+      app_events = [];
+      app_domains = [];
+      if (document.location.href.indexOf("file:") == 0) {
+          app_id = 'cloudlock2';
+          app_events = [ 'all' ];
+          app_domains = [ ]
+      }
+      start_ts = '';
+      end_ts = '';
+  }
+  else {
+      app_events = JSON.parse(app_events);
+      app_domains = JSON.parse(app_domains);
+  }
+</script>
+<script type="text/javascript" src="static/js/jquery.scrollintoview.js"></script>
+<script type="text/javascript" src="costs/costs.js"></script>
+<!-- Accommodate local filesystem loads -->
+<script type="text/javascript" src="../static/js/jquery.scrollintoview.js"></script>
+<script type="text/javascript" src="costs.js"></script>
+</body>
+</html>

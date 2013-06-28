@@ -1,0 +1,13 @@
+* make github with binary chrome extension plus potamus app; set up remote to
+  cloudlock private
+* export destination as a setting (instead of cloudlock-potamus)
+
+* better handshake/master when different pages load
+* capture other deployed versions' info (instances, memory usage)
+
+* preserve interval_id for later cancel
+* on/off transmit, w/customizable URL
+* scrape taskqueue, instances info from dashboard, etc.
+
+DONE
+* scrape all app IDs available

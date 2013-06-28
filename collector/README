@@ -1,0 +1,17 @@
+Collect and Graph Stats to Free Nick
+
+Installation
+============
+Install the Google App Engine SDK:
+
+  $ brew install google-app-engine
+
+Install project dependencies:
+
+  $ virtualenv venv
+  $ source venv/bin/activate
+  $ pip install -r requirements.txt
+
+Upload to App Engine
+
+  $ upload.py my-app:my-version

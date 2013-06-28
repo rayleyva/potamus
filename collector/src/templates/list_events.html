@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Listing Files</title>
+</head>
+<body>
+    <h2>New Event</h2>
+    <form method="POST" id="event-form">
+        <label for="event-name">Event Name</label>
+        <input type="text" id="event-name" />
+        <input type="submit" value="Create" />
+    </form>
+    <h2>Existing Files</h2>
+    <ul>
+        {% for file in files %}
+        <li>{{file}}</li>
+        {% endfor %}
+    </ul>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type="text/javascript">
+window.CREATE_URL = "{{ url_for("create_event", name='FOO') }}"
+
+$(function() {
+    $("#event-form").submit(function(e) {
+        e.preventDefault();
+        var url = CREATE_URL.replace("FOO", $("#event-name").val());
+        // $(this).attr("action", url);
+        $.ajax({
+            url: url,
+            type: "POST",
+            success: function() {
+                alert("yay!");
+            },
+            error: function() {
+                alert("failed :(");
+            }
+        });
+        return false;
+    })
+});
+    </script>
+</body>
+</html>
